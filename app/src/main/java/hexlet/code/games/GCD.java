@@ -24,7 +24,7 @@ public class GCD {
             int number1 = item.nextInt(100);
             int number2 = item.nextInt(100);
             int result = commonDivisor(number1, number2);
-            
+
             System.out.println("Question: " + number1 + " " + number2);
             System.out.print("Answer: ");
             Scanner answer = new Scanner(System.in);

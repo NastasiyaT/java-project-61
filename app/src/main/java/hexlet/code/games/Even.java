@@ -28,7 +28,8 @@ public class Even {
                 antiResult = "no";
             }
 
-            if ((leftover == 0 && userAnswer.equalsIgnoreCase("yes")) || (leftover != 0 && userAnswer.equalsIgnoreCase("no"))) {
+            if ((leftover == 0 && userAnswer.equalsIgnoreCase("yes"))
+                    || (leftover != 0 && userAnswer.equalsIgnoreCase("no"))) {
                 System.out.println("Correct!");
                 i++;
             } else {

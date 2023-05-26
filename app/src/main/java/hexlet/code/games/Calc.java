@@ -26,12 +26,10 @@ public class Calc {
                 case 1 -> {
                     operator = " - ";
                     result = number1 - number2;
-                    ;
                 }
                 case 2 -> {
                     operator = " * ";
                     result = number1 * number2;
-                    ;
                 }
                 default -> operator = " ? ";
             }
@@ -45,7 +43,7 @@ public class Calc {
                 System.out.println("Correct!");
                 i++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result +"'");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'");
                 System.out.println("Let's try again, " + UserName.getName() + "!");
                 break;
             }
