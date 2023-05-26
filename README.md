@@ -1,4 +1,11 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/NastasiyaT/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/NastasiyaT/java-project-61/actions) [![Maintainability](https://api.codeclimate.com/v1/badges/f28000dc4fc41503d56b/maintainability)](https://codeclimate.com/github/NastasiyaT/java-project-61/maintainability)
 
+## Brain Games
+
+### Even
 [![asciicast](https://asciinema.org/a/UfgXJOu6DB89SIVRtR7eUZcQN.svg)](https://asciinema.org/a/UfgXJOu6DB89SIVRtR7eUZcQN)
+
+
+### Calc
+[![asciicast](https://asciinema.org/a/pFJLj8IKpAfE3OCjb7tcz2Ukx.svg)](https://asciinema.org/a/pFJLj8IKpAfE3OCjb7tcz2Ukx)
