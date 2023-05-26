@@ -19,7 +19,7 @@ public class Even {
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
             Scanner answer = new Scanner(System.in);
-            String result = answer.nextLine();
+            String userAnswer = answer.nextLine();
 
             String antiResult = "";
             if (leftover == 0) {
@@ -28,11 +28,11 @@ public class Even {
                 antiResult = "no";
             }
 
-            if ((leftover == 0 && result.equalsIgnoreCase("yes")) || (leftover != 0 && result.equalsIgnoreCase("no"))) {
+            if ((leftover == 0 && userAnswer.equalsIgnoreCase("yes")) || (leftover != 0 && userAnswer.equalsIgnoreCase("no"))) {
                 System.out.println("Correct!");
                 i++;
             } else {
-                System.out.println("'" + result + "' is wrong answer ;(. Correct answer was '" + antiResult + "'");
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + antiResult + "'");
                 System.out.println("Let's try again, " + UserName.getName() + "!");
                 break;
             }

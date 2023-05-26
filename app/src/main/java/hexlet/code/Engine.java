@@ -18,6 +18,8 @@ public class Engine {
 
             case 3 -> Calc.equation();
 
+            case 4 -> GCD.getGCD();
+
             default -> game.close();
         }
     }
