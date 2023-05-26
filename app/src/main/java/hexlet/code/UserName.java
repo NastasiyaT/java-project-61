@@ -8,8 +8,7 @@ public class UserName {
 
     public static void receiveName() {
         System.out.println("May I have your name? ");
-        String newName = input.nextLine();
-        item = newName;
+        item = input.nextLine();
     }
 
     public static String getName() {

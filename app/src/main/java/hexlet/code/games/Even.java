@@ -1,5 +1,6 @@
-package hexlet.code;
+package hexlet.code.games;
 
+import hexlet.code.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,16 +23,16 @@ public class Even {
 
             String antiResult = "";
             if (leftover == 0) {
-                antiResult = "'yes'";
+                antiResult = "yes";
             } else {
-                antiResult = "'no'";
+                antiResult = "no";
             }
 
             if ((leftover == 0 && result.equalsIgnoreCase("yes")) || (leftover != 0 && result.equalsIgnoreCase("no"))) {
                 System.out.println("Correct!");
                 i++;
             } else {
-                System.out.println("'" + result + "' is wrong answer ;(. Correct answer was " + antiResult);
+                System.out.println("'" + result + "' is wrong answer ;(. Correct answer was '" + antiResult + "'");
                 System.out.println("Let's try again, " + UserName.getName() + "!");
                 break;
             }
