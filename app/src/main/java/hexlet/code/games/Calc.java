@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.*;
-import java.util.Scanner;
 import java.util.Random;
 
 public class Calc {
@@ -35,9 +34,8 @@ public class Calc {
             }
 
             System.out.println("Question: " + number1 + operator + number2);
-            System.out.print("Answer: ");
-            Scanner answer = new Scanner(System.in);
-            int userAnswer = answer.nextInt();
+            UserName.askAnswer();
+            int userAnswer = UserName.getAnswer();
 
             if (userAnswer == result) {
                 System.out.println("Correct!");

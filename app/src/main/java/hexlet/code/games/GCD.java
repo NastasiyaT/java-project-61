@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.*;
 import java.util.Random;
-import java.util.Scanner;
 
 public class GCD {
 
@@ -23,20 +22,18 @@ public class GCD {
             Random item = new Random();
             int number1 = item.nextInt(100);
             int number2 = item.nextInt(100);
-            int result = commonDivisor(number1, number2);
+            int rightAnswer = commonDivisor(number1, number2);
 
             System.out.println("Question: " + number1 + " " + number2);
-            System.out.print("Answer: ");
-            Scanner answer = new Scanner(System.in);
-            int userAnswer = answer.nextInt();
+            UserName.askAnswer();
+            int userAnswer = UserName.getAnswer();
 
-            if (userAnswer == result) {
-                System.out.println("Correct!");
+            UserName.reaction(userAnswer, rightAnswer);
+
+            if (userAnswer == rightAnswer) {
                 i++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'");
-                System.out.println("Let's try again, " + UserName.getName() + "!");
-                break;
+                i = 4;
             }
         }
 

@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class UserName {
     private static Scanner input = new Scanner(System.in);
     private static String name;
+    private static int userChoice;
 
     public static void greeting() {
         System.out.println();
@@ -16,5 +17,23 @@ public class UserName {
 
     public static String getName() {
         return name;
+    }
+
+    public static void askAnswer() {
+        System.out.print("Your answer: ");
+        userChoice = input.nextInt();
+    }
+
+    public static int getAnswer() {
+        return userChoice;
+    }
+
+    public static void reaction(int userAnswer, int result) {
+        if (userAnswer == result) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'");
+            System.out.println("Let's try again, " + UserName.getName() + "!");
+        }
     }
 }

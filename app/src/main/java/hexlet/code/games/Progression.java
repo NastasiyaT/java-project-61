@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.*;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Progression {
     public static void guessNumber() {
@@ -37,24 +36,22 @@ public class Progression {
                 System.out.print(items[k] + " ");
             }
             System.out.println();
-            System.out.print("Your answer: ");
-            Scanner answer = new Scanner(System.in);
-            int userAnswer = answer.nextInt();
+            UserName.askAnswer();
+            int userAnswer = UserName.getAnswer();
 
-            int result = items[place];
+            int rightAnswer = items[place];
 
-            if (userAnswer == result) {
-                System.out.println("Correct!");
+            UserName.reaction(userAnswer, rightAnswer);
+
+            if (userAnswer == rightAnswer) {
                 i++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'");
-                System.out.println("Let's try again, " + UserName.getName() + "!");
-                break;
+                i = 4;
             }
+        }
 
-            if (i == 3) {
-                System.out.println("Congratulations!");
-            }
+        if (i == 3) {
+            System.out.println("Congratulations!");
         }
     }
 }
