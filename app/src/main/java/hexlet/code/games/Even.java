@@ -1,12 +1,12 @@
 package hexlet.code.games;
 
-import hexlet.code.*;
+import hexlet.code.Engine;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Even {
     public static void numberEvenOrNot() {
-        UserName.greeting();
+        Engine.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int i = 0;
@@ -34,13 +34,11 @@ public class Even {
                 i++;
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + antiResult + "'");
-                System.out.println("Let's try again, " + UserName.getName() + "!");
+                System.out.println("Let's try again, " + Engine.getName() + "!");
                 break;
             }
-
-            if (i == 3) {
-                System.out.println("Congratulations!");
-            }
         }
+
+        Engine.congratulation(i);
     }
 }

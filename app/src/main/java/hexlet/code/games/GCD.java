@@ -13,7 +13,7 @@ public class GCD {
     }
 
     public static void getGCD() {
-        UserName.greeting();
+        Engine.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int i = 0;
@@ -25,10 +25,10 @@ public class GCD {
             int rightAnswer = commonDivisor(number1, number2);
 
             System.out.println("Question: " + number1 + " " + number2);
-            UserName.askAnswer();
-            int userAnswer = UserName.getAnswer();
+            Engine.askAnswer();
+            int userAnswer = Engine.getAnswer();
 
-            UserName.reaction(userAnswer, rightAnswer);
+            Engine.reaction(userAnswer, rightAnswer);
 
             if (userAnswer == rightAnswer) {
                 i++;
@@ -37,8 +37,6 @@ public class GCD {
             }
         }
 
-        if (i == 3) {
-            System.out.println("Congratulations!");
-        }
+        Engine.congratulation(i);
     }
 }

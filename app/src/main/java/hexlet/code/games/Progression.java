@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Progression {
     public static void guessNumber() {
-        UserName.greeting();
+        Engine.greeting();
         System.out.println("What number is missing in the progression?");
 
         int i = 0;
@@ -36,12 +36,12 @@ public class Progression {
                 System.out.print(items[k] + " ");
             }
             System.out.println();
-            UserName.askAnswer();
-            int userAnswer = UserName.getAnswer();
+            Engine.askAnswer();
+            int userAnswer = Engine.getAnswer();
 
             int rightAnswer = items[place];
 
-            UserName.reaction(userAnswer, rightAnswer);
+            Engine.reaction(userAnswer, rightAnswer);
 
             if (userAnswer == rightAnswer) {
                 i++;
@@ -50,8 +50,6 @@ public class Progression {
             }
         }
 
-        if (i == 3) {
-            System.out.println("Congratulations!");
-        }
+        Engine.congratulation(i);
     }
 }
