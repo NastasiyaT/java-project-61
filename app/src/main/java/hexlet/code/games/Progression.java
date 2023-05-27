@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Progression {
     public static void guessNumber() {
-        Greeting.hello();
+        UserName.greeting();
         System.out.println("What number is missing in the progression?");
 
         int i = 0;

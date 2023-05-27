@@ -14,7 +14,7 @@ public class GCD {
     }
 
     public static void getGCD() {
-        Greeting.hello();
+        UserName.greeting();
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int i = 0;

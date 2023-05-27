@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Even {
     public static void numberEvenOrNot() {
-        Greeting.hello();
+        UserName.greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int i = 0;

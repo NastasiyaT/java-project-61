@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Calc {
     public static void equation() {
-        Greeting.hello();
+        UserName.greeting();
         System.out.println("What is the result of the expression?");
 
         int i = 0;
