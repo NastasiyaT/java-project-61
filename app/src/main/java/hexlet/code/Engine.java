@@ -6,13 +6,12 @@ import java.util.Scanner;
 public class Engine {
     public static void userChoice() {
         System.out.println("Please enter the game number and press Enter");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
+        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
+        for (int i = 1; i < games.length; i++) {
+            System.out.print(i + " - ");
+            System.out.println(games[i]);
+        }
+        System.out.println("0 - " + games[0]);
         System.out.print("Your choice: ");
 
         Scanner game = new Scanner(System.in);

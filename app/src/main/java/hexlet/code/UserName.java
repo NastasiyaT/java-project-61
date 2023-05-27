@@ -4,17 +4,17 @@ import java.util.Scanner;
 
 public class UserName {
     private static Scanner input = new Scanner(System.in);
-    private static String item;
+    private static String name;
 
     public static void greeting() {
         System.out.println();
         System.out.println("Welcome to the Brain Games!");
         System.out.println("May I have your name? ");
-        item = input.nextLine();
-        System.out.println("Hello, " + item + "!");
+        name = input.nextLine();
+        System.out.println("Hello, " + name + "!");
     }
 
     public static String getName() {
-        return item;
+        return name;
     }
 }
