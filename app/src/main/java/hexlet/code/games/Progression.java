@@ -1,6 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.*;
+import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
@@ -21,6 +21,18 @@ public class Progression {
         return items;
     }
 
+    public static void printArray(int[] cases, int dot) {
+        System.out.print("Question: ");
+        for (int j = 0; j < dot; j++) {
+            System.out.print(cases[j] + " ");
+        }
+        System.out.print(".. ");
+        for (int k = dot + 1; k < cases.length; k++) {
+            System.out.print(cases[k] + " ");
+        }
+        System.out.println();
+    }
+
     public static void guessNumber() {
         Engine.greeting();
         System.out.println("What number is missing in the progression?");
@@ -30,18 +42,9 @@ public class Progression {
         while (i < 3) {
             Random number = new Random();
             int[] terms = getNewArray();
-
             int place = number.nextInt(terms.length);
+            printArray(terms, place);
 
-            System.out.print("Question: ");
-            for (int j = 0; j < place; j++) {
-                System.out.print(terms[j] + " ");
-            }
-            System.out.print(".. ");
-            for (int k = place + 1; k < terms.length; k++) {
-                System.out.print(terms[k] + " ");
-            }
-            System.out.println();
             Engine.askAnswerNumber();
             int userAnswer = Engine.getAnswerNumber();
 

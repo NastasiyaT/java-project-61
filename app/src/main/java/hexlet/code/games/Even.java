@@ -16,7 +16,7 @@ public class Even {
 
             System.out.println("Question: " + number);
             Engine.askAnswerLine();
-            String userAnswer= Engine.getAnswerLine();
+            String userAnswer = Engine.getAnswerLine();
 
             String rightAnswer = "no";
             if (number % 2 == 0) {

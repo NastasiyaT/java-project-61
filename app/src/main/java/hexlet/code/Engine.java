@@ -16,10 +16,6 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
     }
 
-    public static String getName() {
-        return name;
-    }
-
     public static void askAnswerNumber() {
         System.out.print("Your answer: ");
         userChoiceNumber = input.nextInt();
