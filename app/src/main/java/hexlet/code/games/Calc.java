@@ -37,7 +37,7 @@ public class Calc {
             Engine.askAnswerNumber();
             int userAnswer = Engine.getAnswerNumber();
 
-            Engine.reaction(userAnswer, rightAnswer);
+            Engine.reactionNumber(userAnswer, rightAnswer);
 
             if (userAnswer == rightAnswer) {
                 i++;

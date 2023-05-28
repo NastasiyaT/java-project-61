@@ -41,7 +41,7 @@ public class Progression {
 
             int rightAnswer = items[place];
 
-            Engine.reaction(userAnswer, rightAnswer);
+            Engine.reactionNumber(userAnswer, rightAnswer);
 
             if (userAnswer == rightAnswer) {
                 i++;

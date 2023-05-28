@@ -38,11 +38,20 @@ public class Engine {
         return userChoiceLine;
     }
 
-    public static void reaction(int userAnswer, int result) {
-        if (userAnswer == result) {
+    public static void reactionNumber(int answerToCompare, int result) {
+        if (answerToCompare == result) {
             System.out.println("Correct!");
         } else {
-            System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'");
+            System.out.println("'" + answerToCompare + "' is wrong answer ;(. Correct answer was '" + result + "'");
+            System.out.println("Let's try again, " + name + "!");
+        }
+    }
+
+    public static void reactionLine(String answerToCompare, String result) {
+        if (answerToCompare.equalsIgnoreCase(result)) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + answerToCompare + "' is wrong answer ;(. Correct answer was '" + result + "'");
             System.out.println("Let's try again, " + name + "!");
         }
     }

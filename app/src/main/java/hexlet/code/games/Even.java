@@ -20,21 +20,19 @@ public class Even {
             Engine.askAnswerLine();
             String userAnswer= Engine.getAnswerLine();
 
-            String antiResult = "";
+            String rightAnswer;
             if (leftover == 0) {
-                antiResult = "yes";
+                rightAnswer = "yes";
             } else {
-                antiResult = "no";
+                rightAnswer = "no";
             }
 
-            if ((leftover == 0 && userAnswer.equalsIgnoreCase("yes"))
-                    || (leftover != 0 && userAnswer.equalsIgnoreCase("no"))) {
-                System.out.println("Correct!");
+            Engine.reactionLine(userAnswer, rightAnswer);
+
+            if (userAnswer.equalsIgnoreCase(rightAnswer)) {
                 i++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + antiResult + "'");
-                System.out.println("Let's try again, " + Engine.getName() + "!");
-                break;
+                i = 4;
             }
         }
 

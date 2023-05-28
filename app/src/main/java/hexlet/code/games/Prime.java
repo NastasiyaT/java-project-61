@@ -15,10 +15,6 @@ public class Prime {
             Random item = new Random();
             int number = item.nextInt(100);
 
-            System.out.println("Question: " + number);
-            Engine.askAnswerLine();
-            String userAnswer = Engine.getAnswerLine();
-
             String rightAnswer;
             if (Primes.isPrime(number)) {
                 rightAnswer = "yes";
@@ -26,13 +22,16 @@ public class Prime {
                 rightAnswer = "no";
             }
 
+            System.out.println("Question: " + number);
+            Engine.askAnswerLine();
+            String userAnswer = Engine.getAnswerLine();
+
+            Engine.reactionLine(userAnswer, rightAnswer);
+
             if (userAnswer.equalsIgnoreCase(rightAnswer)) {
-                System.out.println("Correct!");
                 i++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + rightAnswer + "'");
-                System.out.println("Let's try again, " + Engine.getName() + "!");
-                break;
+                i = 4;
             }
         }
 
