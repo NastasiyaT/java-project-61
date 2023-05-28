@@ -25,8 +25,8 @@ public class GCD {
             int rightAnswer = commonDivisor(number1, number2);
 
             System.out.println("Question: " + number1 + " " + number2);
-            Engine.askAnswer();
-            int userAnswer = Engine.getAnswer();
+            Engine.askAnswerNumber();
+            int userAnswer = Engine.getAnswerNumber();
 
             Engine.reaction(userAnswer, rightAnswer);
 

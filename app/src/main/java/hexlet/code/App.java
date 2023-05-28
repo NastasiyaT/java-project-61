@@ -28,7 +28,7 @@ public class App {
 
             case 5 -> Progression.guessNumber();
 
-            case 6 -> Prime.findPrimeNumber();
+            case 6 -> Prime.guessPrimeNumber();
 
             default -> game.close();
         }

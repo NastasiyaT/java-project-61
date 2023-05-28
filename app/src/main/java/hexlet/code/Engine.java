@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Engine {
     private static Scanner input = new Scanner(System.in);
     private static String name;
-    private static int userChoice;
+    private static int userChoiceNumber;
+    private static String userChoiceLine;
 
     public static void greeting() {
         System.out.println();
@@ -19,13 +20,22 @@ public class Engine {
         return name;
     }
 
-    public static void askAnswer() {
+    public static void askAnswerNumber() {
         System.out.print("Your answer: ");
-        userChoice = input.nextInt();
+        userChoiceNumber = input.nextInt();
     }
 
-    public static int getAnswer() {
-        return userChoice;
+    public static int getAnswerNumber() {
+        return userChoiceNumber;
+    }
+
+    public static void askAnswerLine() {
+        System.out.print("Your answer: ");
+        userChoiceLine = input.nextLine();
+    }
+
+    public static String getAnswerLine() {
+        return userChoiceLine;
     }
 
     public static void reaction(int userAnswer, int result) {
@@ -33,7 +43,7 @@ public class Engine {
             System.out.println("Correct!");
         } else {
             System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + result + "'");
-            System.out.println("Let's try again, " + Engine.getName() + "!");
+            System.out.println("Let's try again, " + name + "!");
         }
     }
 

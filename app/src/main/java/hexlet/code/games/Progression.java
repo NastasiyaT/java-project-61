@@ -36,8 +36,8 @@ public class Progression {
                 System.out.print(items[k] + " ");
             }
             System.out.println();
-            Engine.askAnswer();
-            int userAnswer = Engine.getAnswer();
+            Engine.askAnswerNumber();
+            int userAnswer = Engine.getAnswerNumber();
 
             int rightAnswer = items[place];
 

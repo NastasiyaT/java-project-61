@@ -15,7 +15,7 @@ public class Calc {
             int number1 = item.nextInt(100);
             int number2 = item.nextInt(100);
             int rightAnswer = 0;
-            String operator = " ? ";
+            String operator;
 
             switch (item.nextInt(3)) {
                 case 0 -> {
@@ -34,8 +34,8 @@ public class Calc {
             }
 
             System.out.println("Question: " + number1 + operator + number2);
-            Engine.askAnswer();
-            int userAnswer = Engine.getAnswer();
+            Engine.askAnswerNumber();
+            int userAnswer = Engine.getAnswerNumber();
 
             Engine.reaction(userAnswer, rightAnswer);
 

@@ -17,9 +17,8 @@ public class Even {
             int leftover = number % 2;
 
             System.out.println("Question: " + number);
-            System.out.print("Your answer: ");
-            Scanner answer = new Scanner(System.in);
-            String userAnswer = answer.nextLine();
+            Engine.askAnswerLine();
+            String userAnswer= Engine.getAnswerLine();
 
             String antiResult = "";
             if (leftover == 0) {
