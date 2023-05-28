@@ -15,16 +15,14 @@ public class Prime {
             Random item = new Random();
             int number = item.nextInt(100);
 
-            String rightAnswer;
-            if (Primes.isPrime(number)) {
-                rightAnswer = "yes";
-            } else {
-                rightAnswer = "no";
-            }
-
             System.out.println("Question: " + number);
             Engine.askAnswerLine();
             String userAnswer = Engine.getAnswerLine();
+
+            String rightAnswer = "no";
+            if (Primes.isPrime(number)) {
+                rightAnswer = "yes";
+            }
 
             Engine.reactionLine(userAnswer, rightAnswer);
 
