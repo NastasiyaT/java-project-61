@@ -6,15 +6,15 @@ import java.util.Random;
 public class Progression {
     public static int[] getNewArray() {
         Random count = new Random();
-        int max = 10;
-        int min = 5;
+        final int max = 10;
+        final int min = 5;
         int itemsCount = count.nextInt(max - min) + min;
         int[] items = new int[itemsCount];
 
-        int startNumberMaximum = 50;
+        final int startNumberMaximum = 50;
         int seed = count.nextInt(startNumberMaximum);
 
-        int stepMaximum = 15;
+        final int stepMaximum = 15;
         int step = count.nextInt(stepMaximum) + 1;
 
         for (int n = 0; n < itemsCount; n++) {
