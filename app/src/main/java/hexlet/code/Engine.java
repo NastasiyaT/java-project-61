@@ -54,7 +54,7 @@ public class Engine {
 
     public static void congratulation(int n) {
         if (n == 3) {
-            System.out.println("Congratulations!");
+            System.out.println("Congratulations, " + name + "!");
         }
     }
 }

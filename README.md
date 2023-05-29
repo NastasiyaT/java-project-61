@@ -4,18 +4,21 @@
 ## Brain Games
 
 ### Even
-[![asciicast](https://asciinema.org/a/UfgXJOu6DB89SIVRtR7eUZcQN.svg)](https://asciinema.org/a/UfgXJOu6DB89SIVRtR7eUZcQN)
 
+[![asciicast](https://asciinema.org/a/f3P8H1cnv1Lz7d7pfSa08UlqB.svg)](https://asciinema.org/a/f3P8H1cnv1Lz7d7pfSa08UlqB)
 
 ### Calc
-[![asciicast](https://asciinema.org/a/pFJLj8IKpAfE3OCjb7tcz2Ukx.svg)](https://asciinema.org/a/pFJLj8IKpAfE3OCjb7tcz2Ukx)
 
+[![asciicast](https://asciinema.org/a/BkvZR5KcdJGGrHMg6ViQ0XqCR.svg)](https://asciinema.org/a/BkvZR5KcdJGGrHMg6ViQ0XqCR)
 
 ### GCD
-[![asciicast](https://asciinema.org/a/Kj2c3BoB2IytFj0FIc07Vw4mS.svg)](https://asciinema.org/a/Kj2c3BoB2IytFj0FIc07Vw4mS)
+
+[![asciicast](https://asciinema.org/a/82RtcEnXt8Xram0cRkKB3Dexl.svg)](https://asciinema.org/a/82RtcEnXt8Xram0cRkKB3Dexl)
 
 ### Progression
-[![asciicast](https://asciinema.org/a/ZmmiZY5fHvqB9Y5qa7KDD8QJE.svg)](https://asciinema.org/a/ZmmiZY5fHvqB9Y5qa7KDD8QJE)
+
+[![asciicast](https://asciinema.org/a/4y5u97o0ah7XwsLq0wI7GXLWK.svg)](https://asciinema.org/a/4y5u97o0ah7XwsLq0wI7GXLWK)
 
 ### Prime
-[![asciicast](https://asciinema.org/a/MtNsFXEK8ohMU8D4hgpixeqto.svg)](https://asciinema.org/a/MtNsFXEK8ohMU8D4hgpixeqto)
+
+[![asciicast](https://asciinema.org/a/XhsoyIIS0BqCtb9hVAyIK59vQ.svg)](https://asciinema.org/a/XhsoyIIS0BqCtb9hVAyIK59vQ)
