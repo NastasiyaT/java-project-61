@@ -20,20 +20,20 @@ public class Calc {
 
             int rightAnswer;
 
-            String operator = "";
-            int operatorCount = 3;
+            String[] operators = {" + ", " - ", " * "};
+            String operator;
 
-            switch (item.nextInt(operatorCount)) {
+            switch (item.nextInt(operators.length)) {
                 case 0 -> {
-                    operator = " + ";
+                    operator = operators[0];
                     rightAnswer = number1 + number2;
                 }
                 case 1 -> {
-                    operator = " - ";
+                    operator = operators[1];
                     rightAnswer = number1 - number2;
                 }
                 case 2 -> {
-                    operator = " * ";
+                    operator = operators[2];
                     rightAnswer = number1 * number2;
                 }
                 default -> {

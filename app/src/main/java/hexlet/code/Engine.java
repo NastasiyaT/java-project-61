@@ -17,11 +17,13 @@ public class Engine {
     }
 
     public static int getRoundCount() {
-        return 3;
+        int roundCount = 3;
+        return roundCount;
     }
 
     public static int getRandomBoundary() {
-        return 100;
+        int randomBoundary = 100;
+        return randomBoundary;
     }
 
     public static void askAnswerNumber() {

@@ -11,6 +11,7 @@ public class App {
     public static void main(String[] args) {
         System.out.println("Please enter the game number and press Enter");
         String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
+
         for (int i = 1; i < games.length; i++) {
             System.out.print(i + " - ");
             System.out.println(games[i]);
@@ -21,18 +22,20 @@ public class App {
         Scanner game = new Scanner(System.in);
         int gameChoice = game.nextInt();
 
-        switch (gameChoice) {
-            case 1 -> Engine.greeting();
+        String gameName = games[gameChoice];
 
-            case 2 -> Even.numberEvenOrNot();
+        switch (gameName) {
+            case "Greet" -> Engine.greeting();
 
-            case 3 -> Calc.equation();
+            case "Even" -> Even.numberEvenOrNot();
 
-            case 4 -> GCD.getGCD();
+            case "Calc" -> Calc.equation();
 
-            case 5 -> Progression.guessNumber();
+            case "GCD" -> GCD.getGCD();
 
-            case 6 -> Prime.guessPrimeNumber();
+            case "Progression" -> Progression.guessNumber();
+
+            case "Prime" -> Prime.guessPrimeNumber();
 
             default -> game.close();
         }
