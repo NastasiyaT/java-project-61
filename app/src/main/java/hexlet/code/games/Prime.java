@@ -10,10 +10,12 @@ public class Prime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int i = 0;
+        int round = Engine.getRoundCount();
 
-        while (i < 3) {
+        while (i < round) {
             Random item = new Random();
-            int number = item.nextInt(100);
+            int boundary = Engine.getRandomBoundary();
+            int number = item.nextInt(boundary);
 
             System.out.println("Question: " + number);
             Engine.askAnswerLine();
@@ -29,10 +31,10 @@ public class Prime {
             if (userAnswer.equalsIgnoreCase(rightAnswer)) {
                 i++;
             } else {
-                i = 4;
+                i = round + 1;
             }
         }
 
-        Engine.congratulation(i);
+        Engine.congratulation(i, round);
     }
 }

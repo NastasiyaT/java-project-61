@@ -17,11 +17,13 @@ public class GCD {
         System.out.println("Find the greatest common divisor of given numbers.");
 
         int i = 0;
+        int round = Engine.getRoundCount();
 
-        while (i < 3) {
+        while (i < round) {
             Random item = new Random();
-            int number1 = item.nextInt(100);
-            int number2 = item.nextInt(100);
+            int boundary = Engine.getRandomBoundary();
+            int number1 = item.nextInt(boundary);
+            int number2 = item.nextInt(boundary);
             int rightAnswer = commonDivisor(number1, number2);
 
             System.out.println("Question: " + number1 + " " + number2);
@@ -33,10 +35,10 @@ public class GCD {
             if (userAnswer == rightAnswer) {
                 i++;
             } else {
-                i = 4;
+                i = round + 1;
             }
         }
 
-        Engine.congratulation(i);
+        Engine.congratulation(i, round);
     }
 }

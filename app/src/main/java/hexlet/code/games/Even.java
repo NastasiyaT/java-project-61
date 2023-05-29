@@ -9,10 +9,12 @@ public class Even {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int i = 0;
+        int round = Engine.getRoundCount();
 
-        while (i < 3) {
+        while (i < round) {
             Random item = new Random();
-            int number = item.nextInt(100);
+            int boundary = Engine.getRandomBoundary();
+            int number = item.nextInt(boundary);
 
             System.out.println("Question: " + number);
             Engine.askAnswerLine();
@@ -28,10 +30,10 @@ public class Even {
             if (userAnswer.equalsIgnoreCase(rightAnswer)) {
                 i++;
             } else {
-                i = 4;
+                i = round + 1;
             }
         }
 
-        Engine.congratulation(i);
+        Engine.congratulation(i, round);
     }
 }

@@ -16,6 +16,14 @@ public class Engine {
         System.out.println("Hello, " + name + "!");
     }
 
+    public static int getRoundCount() {
+        return 3;
+    }
+
+    public static int getRandomBoundary() {
+        return 100;
+    }
+
     public static void askAnswerNumber() {
         System.out.print("Your answer: ");
         userChoiceNumber = input.nextInt();
@@ -52,8 +60,8 @@ public class Engine {
         }
     }
 
-    public static void congratulation(int n) {
-        if (n == 3) {
+    public static void congratulation(int x, int y) {
+        if (x == y) {
             System.out.println("Congratulations, " + name + "!");
         }
     }

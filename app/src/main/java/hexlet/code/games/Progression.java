@@ -6,12 +6,16 @@ import java.util.Random;
 public class Progression {
     public static int[] getNewArray() {
         Random count = new Random();
-
-        int itemsCount = count.nextInt(6) + 5;
+        int high = 10;
+        int low = 5;
+        int itemsCount = count.nextInt(high - low) + low;
         int[] items = new int[itemsCount];
 
-        int seed = count.nextInt(50);
-        int step = count.nextInt(15) + 1;
+        int seedBoundary = 50;
+        int seed = count.nextInt(seedBoundary);
+
+        int stepBoundary = 15;
+        int step = count.nextInt(stepBoundary) + 1;
 
         for (int n = 0; n < itemsCount; n++) {
             items[n] = seed;
@@ -38,8 +42,9 @@ public class Progression {
         System.out.println("What number is missing in the progression?");
 
         int i = 0;
+        int round = Engine.getRoundCount();
 
-        while (i < 3) {
+        while (i < round) {
             Random number = new Random();
             int[] terms = getNewArray();
             int place = number.nextInt(terms.length);
@@ -55,10 +60,10 @@ public class Progression {
             if (userAnswer == rightAnswer) {
                 i++;
             } else {
-                i = 4;
+                i = round + 1;
             }
         }
 
-        Engine.congratulation(i);
+        Engine.congratulation(i, round);
     }
 }
