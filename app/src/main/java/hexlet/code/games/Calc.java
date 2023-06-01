@@ -8,16 +8,16 @@ public class Calc {
     }
 
     public static String[][] getQuestionAnswerCalc() {
-        int round = 3;
+        final int round = 3;
         int questionAnswer = 2;
         String[][] items = new String[round][questionAnswer];
 
         for (int i = 0; i < round; i++) {
             Random newNumber = new Random();
-            final int BOUNDARY100 = 100;
+            final int boundary100 = 100;
 
-            int number1 = newNumber.nextInt(BOUNDARY100);
-            int number2 = newNumber.nextInt(BOUNDARY100);
+            int number1 = newNumber.nextInt(boundary100);
+            int number2 = newNumber.nextInt(boundary100);
             String[] operators = {" + ", " - ", " * "};
 
             switch (newNumber.nextInt(operators.length)) {

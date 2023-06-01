@@ -44,9 +44,9 @@ public class Engine {
         }
 
         int m = 0;
-        final int GAME_ROUND3 = 3;
+        final int gameROUND = 3;
 
-        while (m < GAME_ROUND3) {
+        while (m < gameROUND) {
             System.out.println("Question: " + units[m][0]);
             System.out.print("Your answer: ");
             String userAnswer = input.nextLine();
@@ -55,13 +55,14 @@ public class Engine {
                 System.out.println("Correct!");
                 m++;
             } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + units[m][1] + "'.");
+                System.out.print("'" + userAnswer + "' is wrong answer ;(. ");
+                System.out.println("Correct answer was '" + units[m][1] + "'.");
                 System.out.println("Let's try again, " + userName + "!");
-                m = GAME_ROUND3 + 1;
+                m = gameROUND + 1;
             }
         }
 
-        if (m == GAME_ROUND3) {
+        if (m == gameROUND) {
             System.out.println("Congratulations, " + userName + "!");
         }
     }

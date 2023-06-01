@@ -8,14 +8,14 @@ public class Even {
     }
 
     public static String[][] getQuestionAnswerEven() {
-        int round = 3;
+        final int round = 3;
         int questionAnswer = 2;
         String[][] items = new String[round][questionAnswer];
 
         for (int i = 0; i < round; i++) {
             Random newNumber = new Random();
-            final int BOUNDARY100 = 100;
-            int number = newNumber.nextInt(BOUNDARY100);
+            final int boundary100 = 100;
+            int number = newNumber.nextInt(boundary100);
 
             items[i][0] = Integer.toString(number);
 

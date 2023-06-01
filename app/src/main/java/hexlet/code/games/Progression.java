@@ -9,9 +9,9 @@ public class Progression {
 
     public static int[] getNewArray() {
         Random count = new Random();
-        final int MAX10 = 10;
-        final int MIN5 = 5;
-        int itemsCount = count.nextInt(MAX10 - MIN5) + MIN5;
+        final int max10 = 10;
+        final int min5 = 5;
+        int itemsCount = count.nextInt(max10 - min5) + min5;
         int[] cases = new int[itemsCount];
 
         final int startNumberMaximum = 50;
@@ -47,7 +47,7 @@ public class Progression {
     }
 
     public static String[][] getQuestionAnswerProgression() {
-        int round = 3;
+        final int round = 3;
         int questionAnswer = 2;
         String[][] items = new String[round][questionAnswer];
 

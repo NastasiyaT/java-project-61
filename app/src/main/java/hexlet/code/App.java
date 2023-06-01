@@ -28,9 +28,7 @@ public class App {
             String name = input.next();
             System.out.println("Hello, " + name + "!");
 
-            if (gameChoice == 1) {
-                input.close();
-            } else {
+            if (gameChoice != 1) {
                 Engine.playGame(gameName, name);
             }
         }
