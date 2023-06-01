@@ -1,60 +1,45 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
-    public static void equation() {
-        Engine.greeting();
+    public static void printQuestionCalc() {
         System.out.println("What is the result of the expression?");
+    }
 
-        int i = 0;
-        int round = Engine.getRoundCount();
+    public static String[][] getQuestionAnswerCalc() {
+        int round = 3;
+        int questionAnswer = 2;
+        String[][] items = new String[round][questionAnswer];
 
-        while (i < round) {
-            Random item = new Random();
-            int boundary = Engine.getRandomBoundary();
+        for (int i = 0; i < round; i++) {
+            Random newNumber = new Random();
+            final int BOUNDARY100 = 100;
 
-            int number1 = item.nextInt(boundary);
-            int number2 = item.nextInt(boundary);
-
-            int rightAnswer;
-
+            int number1 = newNumber.nextInt(BOUNDARY100);
+            int number2 = newNumber.nextInt(BOUNDARY100);
             String[] operators = {" + ", " - ", " * "};
-            String operator;
 
-            switch (item.nextInt(operators.length)) {
+            switch (newNumber.nextInt(operators.length)) {
                 case 0 -> {
-                    operator = operators[0];
-                    rightAnswer = number1 + number2;
+                    items[i][0] = number1 + operators[0] + number2;
+                    items[i][1] = Integer.toString(number1 + number2);
                 }
                 case 1 -> {
-                    operator = operators[1];
-                    rightAnswer = number1 - number2;
+                    items[i][0] = number1 + operators[1] + number2;
+                    items[i][1] = Integer.toString(number1 - number2);
                 }
                 case 2 -> {
-                    operator = operators[2];
-                    rightAnswer = number1 * number2;
+                    items[i][0] = number1 + operators[2] + number2;
+                    items[i][1] = Integer.toString(number1 * number2);
                 }
                 default -> {
-                    operator = " ? ";
-                    rightAnswer = 0;
+                    items[i][0] = "?";
+                    items[i][1] = Integer.toString(0);
                 }
-            }
-
-            System.out.println("Question: " + number1 + operator + number2);
-            Engine.askAnswerNumber();
-            int userAnswer = Engine.getAnswerNumber();
-
-            Engine.reactionNumber(userAnswer, rightAnswer);
-
-            if (userAnswer == rightAnswer) {
-                i++;
-            } else {
-                i = round + 1;
             }
         }
 
-        Engine.congratulation(i, round);
+        return items;
     }
 }

@@ -1,40 +1,31 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import org.apache.commons.math3.primes.Primes;
 import java.util.Random;
 
 public class Prime {
-    public static void guessPrimeNumber() {
-        Engine.greeting();
+    public static void printQuestionPrime() {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    }
 
-        int i = 0;
-        int round = Engine.getRoundCount();
+    public static String[][] getQuestionAnswerPrime() {
+        int round = 3;
+        int questionAnswer = 2;
+        String[][] items = new String[round][questionAnswer];
 
-        while (i < round) {
-            Random item = new Random();
-            int boundary = Engine.getRandomBoundary();
-            int number = item.nextInt(boundary);
+        for (int i = 0; i < round; i++) {
+            Random newNumber = new Random();
+            final int BOUNDARY100 = 100;
 
-            System.out.println("Question: " + number);
-            Engine.askAnswerLine();
-            String userAnswer = Engine.getAnswerLine();
+            int number = newNumber.nextInt(BOUNDARY100);
 
-            String rightAnswer = "no";
+            items[i][0] = Integer.toString(number);
+            items[i][1] = "no";
             if (Primes.isPrime(number)) {
-                rightAnswer = "yes";
-            }
-
-            Engine.reactionLine(userAnswer, rightAnswer);
-
-            if (userAnswer.equalsIgnoreCase(rightAnswer)) {
-                i++;
-            } else {
-                i = round + 1;
+                items[i][1] = "yes";
             }
         }
 
-        Engine.congratulation(i, round);
+        return items;
     }
 }

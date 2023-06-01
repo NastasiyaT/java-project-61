@@ -1,15 +1,18 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
+    public static void printQuestionProgression() {
+        System.out.println("What number is missing in the progression?");
+    }
+
     public static int[] getNewArray() {
         Random count = new Random();
-        final int max = 10;
-        final int min = 5;
-        int itemsCount = count.nextInt(max - min) + min;
-        int[] items = new int[itemsCount];
+        final int MAX10 = 10;
+        final int MIN5 = 5;
+        int itemsCount = count.nextInt(MAX10 - MIN5) + MIN5;
+        int[] cases = new int[itemsCount];
 
         final int startNumberMaximum = 50;
         int seed = count.nextInt(startNumberMaximum);
@@ -18,52 +21,46 @@ public class Progression {
         int step = count.nextInt(stepMaximum) + 1;
 
         for (int n = 0; n < itemsCount; n++) {
-            items[n] = seed;
+            cases[n] = seed;
             seed += step;
         }
 
+        return cases;
+    }
+
+    public static String printArray(int[] items, int space) {
+        StringBuilder printedArray = new StringBuilder();
+
+        for (int x = 0; x < space; x++) {
+            printedArray.append(items[x]);
+            printedArray.append(" ");
+        }
+
+        printedArray.append(".. ");
+
+        for (int y = space + 1; y < items.length; y++) {
+            printedArray.append(items[y]);
+            printedArray.append(" ");
+        }
+
+        return printedArray.toString();
+    }
+
+    public static String[][] getQuestionAnswerProgression() {
+        int round = 3;
+        int questionAnswer = 2;
+        String[][] items = new String[round][questionAnswer];
+
+        for (int i = 0; i < round; i++) {
+            Random newNumber = new Random();
+
+            int[] units = getNewArray();
+            int place = newNumber.nextInt(units.length);
+
+            items[i][0] = printArray(units, place);
+            items[i][1] = Integer.toString(units[place]);
+        }
+
         return items;
-    }
-
-    public static void printArray(int[] cases, int dot) {
-        System.out.print("Question: ");
-        for (int j = 0; j < dot; j++) {
-            System.out.print(cases[j] + " ");
-        }
-        System.out.print(".. ");
-        for (int k = dot + 1; k < cases.length; k++) {
-            System.out.print(cases[k] + " ");
-        }
-        System.out.println();
-    }
-
-    public static void guessNumber() {
-        Engine.greeting();
-        System.out.println("What number is missing in the progression?");
-
-        int i = 0;
-        int round = Engine.getRoundCount();
-
-        while (i < round) {
-            Random number = new Random();
-            int[] terms = getNewArray();
-            int place = number.nextInt(terms.length);
-            printArray(terms, place);
-
-            Engine.askAnswerNumber();
-            int userAnswer = Engine.getAnswerNumber();
-
-            int rightAnswer = terms[place];
-
-            Engine.reactionNumber(userAnswer, rightAnswer);
-
-            if (userAnswer == rightAnswer) {
-                i++;
-            } else {
-                i = round + 1;
-            }
-        }
-
-        Engine.congratulation(i, round);
     }
 }

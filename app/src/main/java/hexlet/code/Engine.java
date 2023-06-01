@@ -1,70 +1,68 @@
 package hexlet.code;
 
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
+
 import java.util.Scanner;
 
 public class Engine {
     private static Scanner input = new Scanner(System.in);
-    private static String name;
-    private static int userChoiceNumber;
-    private static String userChoiceLine;
 
-    public static void greeting() {
-        System.out.println();
-        System.out.println("Welcome to the Brain Games!");
-        System.out.println("May I have your name? ");
-        name = input.nextLine();
-        System.out.println("Hello, " + name + "!");
-    }
+    public static void playGame(String userChoice, String userName) {
+        String[][] units = new String[][] {};
 
-    public static int getRoundCount() {
-        final int roundCount = 3;
-        return roundCount;
-    }
+        switch (userChoice) {
+            case "Even" -> {
+                Even.printQuestionEven();
+                units = Even.getQuestionAnswerEven();
+            }
 
-    public static int getRandomBoundary() {
-        final int randomBoundary = 100;
-        return randomBoundary;
-    }
+            case "Calc" -> {
+                Calc.printQuestionCalc();
+                units = Calc.getQuestionAnswerCalc();
+            }
 
-    public static void askAnswerNumber() {
-        System.out.print("Your answer: ");
-        userChoiceNumber = input.nextInt();
-    }
+            case "GCD" -> {
+                GCD.printQuestionGCD();
+                units = GCD.getQuestionAnswerGCD();
+            }
 
-    public static int getAnswerNumber() {
-        return userChoiceNumber;
-    }
+            case "Progression" -> {
+                Progression.printQuestionProgression();
+                units = Progression.getQuestionAnswerProgression();
+            }
 
-    public static void askAnswerLine() {
-        System.out.print("Your answer: ");
-        userChoiceLine = input.nextLine();
-    }
+            case "Prime" -> {
+                Prime.printQuestionPrime();
+                units = Prime.getQuestionAnswerPrime();
+            }
 
-    public static String getAnswerLine() {
-        return userChoiceLine;
-    }
-
-    public static void reactionNumber(int answerToCompare, int result) {
-        if (answerToCompare == result) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("'" + answerToCompare + "' is wrong answer ;(. Correct answer was '" + result + "'");
-            System.out.println("Let's try again, " + name + "!");
+            default -> input.close();
         }
-    }
 
-    public static void reactionLine(String answerToCompare, String result) {
-        if (answerToCompare.equalsIgnoreCase(result)) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("'" + answerToCompare + "' is wrong answer ;(. Correct answer was '" + result + "'");
-            System.out.println("Let's try again, " + name + "!");
+        int m = 0;
+        final int GAME_ROUND3 = 3;
+
+        while (m < GAME_ROUND3) {
+            System.out.println("Question: " + units[m][0]);
+            System.out.print("Your answer: ");
+            String userAnswer = input.nextLine();
+
+            if (userAnswer.equalsIgnoreCase(units[m][1])) {
+                System.out.println("Correct!");
+                m++;
+            } else {
+                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + units[m][1] + "'.");
+                System.out.println("Let's try again, " + userName + "!");
+                m = GAME_ROUND3 + 1;
+            }
         }
-    }
 
-    public static void congratulation(int x, int y) {
-        if (x == y) {
-            System.out.println("Congratulations, " + name + "!");
+        if (m == GAME_ROUND3) {
+            System.out.println("Congratulations, " + userName + "!");
         }
     }
 }

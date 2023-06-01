@@ -1,10 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class App {
@@ -19,25 +14,25 @@ public class App {
         System.out.println("0 - " + games[0]);
         System.out.print("Your choice: ");
 
-        Scanner game = new Scanner(System.in);
-        int gameChoice = game.nextInt();
+        Scanner input = new Scanner(System.in);
+        int gameChoice = input.nextInt();
 
         String gameName = games[gameChoice];
 
-        switch (gameName) {
-            case "Greet" -> Engine.greeting();
+        if (gameChoice == 0) {
+            input.close();
+        } else {
+            System.out.println();
+            System.out.println("Welcome to the Brain Games!");
+            System.out.println("May I have your name? ");
+            String name = input.next();
+            System.out.println("Hello, " + name + "!");
 
-            case "Even" -> Even.numberEvenOrNot();
-
-            case "Calc" -> Calc.equation();
-
-            case "GCD" -> GCD.getGCD();
-
-            case "Progression" -> Progression.guessNumber();
-
-            case "Prime" -> Prime.guessPrimeNumber();
-
-            default -> game.close();
+            if (gameChoice == 1) {
+                input.close();
+            } else {
+                Engine.playGame(gameName, name);
+            }
         }
     }
 }

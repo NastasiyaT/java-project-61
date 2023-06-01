@@ -1,44 +1,35 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import java.util.Random;
 
 public class GCD {
-
-    public static int commonDivisor(int n1, int n2) {
-        if (n1 == 0) {
-            return n2;
-        }
-        return commonDivisor(n2 % n1, n1);
+    public static void printQuestionGCD() {
+        System.out.println("Find the greatest common divisor of given numbers.");
     }
 
-    public static void getGCD() {
-        Engine.greeting();
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public static int commonDivisor(int a, int b) {
+        if (a == 0) {
+            return b;
+        }
+        return commonDivisor(b % a, a);
+    }
 
-        int i = 0;
-        int round = Engine.getRoundCount();
+    public static String[][] getQuestionAnswerGCD() {
+        int round = 3;
+        int questionAnswer = 2;
+        String[][] items = new String[round][questionAnswer];
 
-        while (i < round) {
-            Random item = new Random();
-            int boundary = Engine.getRandomBoundary();
-            int number1 = item.nextInt(boundary);
-            int number2 = item.nextInt(boundary);
-            int rightAnswer = commonDivisor(number1, number2);
+        for (int i = 0; i < round; i++) {
+            Random newNumber = new Random();
+            final int BOUNDARY100 = 100;
 
-            System.out.println("Question: " + number1 + " " + number2);
-            Engine.askAnswerNumber();
-            int userAnswer = Engine.getAnswerNumber();
+            int number1 = newNumber.nextInt(BOUNDARY100);
+            int number2 = newNumber.nextInt(BOUNDARY100);
 
-            Engine.reactionNumber(userAnswer, rightAnswer);
-
-            if (userAnswer == rightAnswer) {
-                i++;
-            } else {
-                i = round + 1;
-            }
+            items[i][0] = number1 + " " + number2;
+            items[i][1] = Integer.toString(commonDivisor(number1, number2));
         }
 
-        Engine.congratulation(i, round);
+        return items;
     }
 }
