@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
+
 import java.util.Scanner;
 
 public class App {
@@ -18,8 +24,10 @@ public class App {
         int gameChoice = input.nextInt();
 
         String gameName = games[gameChoice];
+        String[][] units = new String[][] {};
+        String question = "";
 
-        if (gameChoice == 0) {
+        if (gameName.equals("Exit")) {
             input.close();
         } else {
             System.out.println();
@@ -28,8 +36,39 @@ public class App {
             String name = input.next();
             System.out.println("Hello, " + name + "!");
 
+            switch (gameName) {
+                case "Greet" -> input.close();
+
+                case "Even" -> {
+                    question = Even.printQuestionEven();
+                    units = Even.getQuestionAnswerEven();
+                }
+
+                case "Calc" -> {
+                    question = Calc.printQuestionCalc();
+                    units = Calc.getQuestionAnswerCalc();
+                }
+
+                case "GCD" -> {
+                    question = GCD.printQuestionGCD();
+                    units = GCD.getQuestionAnswerGCD();
+                }
+
+                case "Progression" -> {
+                    question = Progression.printQuestionProgression();
+                    units = Progression.getQuestionAnswerProgression();
+                }
+
+                case "Prime" -> {
+                    question = Prime.printQuestionPrime();
+                    units = Prime.getQuestionAnswerPrime();
+                }
+
+                default -> throw new Error("Unknown game: " + gameName + "!");
+            }
+
             if (gameChoice != 1) {
-                Engine.playGame(gameName, name);
+                Engine.playGame(question, units, name);
             }
         }
     }

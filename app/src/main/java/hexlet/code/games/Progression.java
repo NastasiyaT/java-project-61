@@ -3,8 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Progression {
-    public static void printQuestionProgression() {
-        System.out.println("What number is missing in the progression?");
+    public static String printQuestionProgression() {
+        return "What number is missing in the progression?";
     }
 
     public static int[] getNewArray() {

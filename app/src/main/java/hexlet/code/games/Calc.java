@@ -3,8 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Calc {
-    public static void printQuestionCalc() {
-        System.out.println("What is the result of the expression?");
+    public static String printQuestionCalc() {
+        return "What is the result of the expression?";
     }
 
     public static String[][] getQuestionAnswerCalc() {
@@ -33,10 +33,7 @@ public class Calc {
                     items[i][0] = number1 + operators[2] + number2;
                     items[i][1] = Integer.toString(number1 * number2);
                 }
-                default -> {
-                    items[i][0] = "?";
-                    items[i][1] = Integer.toString(0);
-                }
+                default -> throw new Error("Unknown operator!");
             }
         }
 

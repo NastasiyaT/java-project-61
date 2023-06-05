@@ -3,8 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class GCD {
-    public static void printQuestionGCD() {
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public static String printQuestionGCD() {
+        return "Find the greatest common divisor of given numbers.";
     }
 
     public static int commonDivisor(int a, int b) {
