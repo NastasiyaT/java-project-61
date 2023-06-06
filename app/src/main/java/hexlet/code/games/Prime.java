@@ -1,29 +1,41 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import org.apache.commons.math3.primes.Primes;
 import java.util.Random;
 
 public class Prime {
-    public static String printQuestionPrime() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static final int ROUND = 3;
+
+    public static void numberPrimeOrNot() {
+        String[][] issues = new String[ROUND][2];
+
+        for (String[] issue : issues) {
+            String[] reactions = generateRoundData();
+            issue[0] = reactions[0];
+            issue[1] = reactions[1];
+        }
+
+        String task = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+        Engine.playGame(task, issues);
     }
 
-    public static String[][] getQuestionAnswerPrime() {
-        final int round = 3;
-        int questionAnswer = 2;
-        String[][] items = new String[round][questionAnswer];
+    public static final int BOUNDARY = 100;
 
-        for (int i = 0; i < round; i++) {
-            Random newNumber = new Random();
-            final int boundary100 = 100;
+    public static String[] generateRoundData() {
+        String[] items = {"Question", "Answer"};
 
-            int number = newNumber.nextInt(boundary100);
+        Random newNumber = new Random();
+        int number = newNumber.nextInt(BOUNDARY);
 
-            items[i][0] = Integer.toString(number);
-            items[i][1] = "no";
-            if (Primes.isPrime(number)) {
-                items[i][1] = "yes";
-            }
+        items[0] = Integer.toString(number);
+
+        if (Primes.isPrime(number)) {
+            items[1] = "yes";
+        } else {
+            items[1] = "no";
         }
 
         return items;

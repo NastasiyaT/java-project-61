@@ -1,24 +1,52 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 public class Progression {
-    public static String printQuestionProgression() {
-        return "What number is missing in the progression?";
+    public static final int ROUND = 3;
+
+    public static void startProgression() {
+        String[][] issues = new String[ROUND][2];
+
+        for (String[] issue : issues) {
+            String[] reactions = generateRoundData();
+            issue[0] = reactions[0];
+            issue[1] = reactions[1];
+        }
+
+        String task = "What number is missing in the progression?";
+
+        Engine.playGame(task, issues);
     }
+
+    public static String[] generateRoundData() {
+        String[] items = {"Question", "Answer"};
+
+        Random newNumber = new Random();
+        int[] units = getNewArray();
+        int place = newNumber.nextInt(units.length);
+
+        items[0] = printArray(units, place);
+        items[1] = Integer.toString(units[place]);
+
+        return items;
+    }
+
+    public static final int START_NUMBER_MAX = 50;
+    public static final int STEP_MAX = 15;
+    public static final int MAX = 10;
+    public static final int MIN = 5;
 
     public static int[] getNewArray() {
         Random count = new Random();
-        final int max10 = 10;
-        final int min5 = 5;
-        int itemsCount = count.nextInt(max10 - min5) + min5;
+        int itemsCount = count.nextInt(MAX - MIN) + MIN;
         int[] cases = new int[itemsCount];
 
-        final int startNumberMaximum = 50;
-        int seed = count.nextInt(startNumberMaximum);
+        int seed = count.nextInt(START_NUMBER_MAX);
 
-        final int stepMaximum = 15;
-        int step = count.nextInt(stepMaximum) + 1;
+        int step = count.nextInt(STEP_MAX) + 1;
 
         for (int n = 0; n < itemsCount; n++) {
             cases[n] = seed;
@@ -44,23 +72,5 @@ public class Progression {
         }
 
         return printedArray.toString();
-    }
-
-    public static String[][] getQuestionAnswerProgression() {
-        final int round = 3;
-        int questionAnswer = 2;
-        String[][] items = new String[round][questionAnswer];
-
-        for (int i = 0; i < round; i++) {
-            Random newNumber = new Random();
-
-            int[] units = getNewArray();
-            int place = newNumber.nextInt(units.length);
-
-            items[i][0] = printArray(units, place);
-            items[i][1] = Integer.toString(units[place]);
-        }
-
-        return items;
     }
 }

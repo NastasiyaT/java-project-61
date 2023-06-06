@@ -3,22 +3,24 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static void playGame(String task, String[][] gameQuestionsAnswers, String userName) {
-        Scanner input = new Scanner(System.in);
+    private static final Scanner input = new Scanner(System.in);
+    public static final int GAME_ROUND = 3;
 
-        System.out.println(task);
+    public static void playGame(String quiz, String[][] gameQuestionsAnswers) {
+        System.out.println();
+        System.out.println("Welcome to the Brain Games!");
+        System.out.println("May I have your name? ");
+        String userName = input.nextLine();
+        System.out.println("Hello, " + userName + "!");
+        System.out.println(quiz);
 
-        int m = 0;
-        final int gameROUND = 3;
-
-        while (m < gameROUND) {
+        for (int m = 0; m < GAME_ROUND; m++) {
             System.out.println("Question: " + gameQuestionsAnswers[m][0]);
             System.out.print("Your answer: ");
             String userAnswer = input.nextLine();
 
             if (userAnswer.equalsIgnoreCase(gameQuestionsAnswers[m][1])) {
                 System.out.println("Correct!");
-                m++;
             } else {
                 System.out.print("'" + userAnswer + "' is wrong answer ;(. ");
                 System.out.println("Correct answer was '" + gameQuestionsAnswers[m][1] + "'.");

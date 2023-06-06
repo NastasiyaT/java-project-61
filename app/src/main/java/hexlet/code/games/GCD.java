@@ -1,10 +1,39 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
 
 public class GCD {
-    public static String printQuestionGCD() {
-        return "Find the greatest common divisor of given numbers.";
+    public static final int ROUND = 3;
+
+    public static void findGCD() {
+        String[][] issues = new String[ROUND][2];
+
+        for (String[] issue : issues) {
+            String[] reactions = generateRoundData();
+            issue[0] = reactions[0];
+            issue[1] = reactions[1];
+        }
+
+        String task = "Find the greatest common divisor of given numbers.";
+
+        Engine.playGame(task, issues);
+    }
+
+    public static final int BOUNDARY = 100;
+
+    public static String[] generateRoundData() {
+        String[] items = {"Question", "Answer"};
+
+        Random newNumber = new Random();
+         int n1 = newNumber.nextInt(BOUNDARY);
+         int n2 = newNumber.nextInt(BOUNDARY);
+
+         items[0] = n1 + " " + n2;
+         items[1] = Integer.toString(commonDivisor(n1, n2));
+
+        return items;
     }
 
     public static int commonDivisor(int a, int b) {
@@ -12,24 +41,5 @@ public class GCD {
             return b;
         }
         return commonDivisor(b % a, a);
-    }
-
-    public static String[][] getQuestionAnswerGCD() {
-        final int round = 3;
-        int questionAnswer = 2;
-        String[][] items = new String[round][questionAnswer];
-
-        for (int i = 0; i < round; i++) {
-            Random newNumber = new Random();
-            final int boundary100 = 100;
-
-            int number1 = newNumber.nextInt(boundary100);
-            int number2 = newNumber.nextInt(boundary100);
-
-            items[i][0] = number1 + " " + number2;
-            items[i][1] = Integer.toString(commonDivisor(number1, number2));
-        }
-
-        return items;
     }
 }

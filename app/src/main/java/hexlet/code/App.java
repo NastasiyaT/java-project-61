@@ -24,52 +24,29 @@ public class App {
         int gameChoice = input.nextInt();
 
         String gameName = games[gameChoice];
-        String[][] units = new String[][] {};
-        String question = "";
 
-        if (gameName.equals("Exit")) {
-            input.close();
-        } else {
-            System.out.println();
-            System.out.println("Welcome to the Brain Games!");
-            System.out.println("May I have your name? ");
-            String name = input.next();
-            System.out.println("Hello, " + name + "!");
+        switch (gameName) {
+            case "Exit" -> input.close();
 
-            switch (gameName) {
-                case "Greet" -> input.close();
-
-                case "Even" -> {
-                    question = Even.printQuestionEven();
-                    units = Even.getQuestionAnswerEven();
-                }
-
-                case "Calc" -> {
-                    question = Calc.printQuestionCalc();
-                    units = Calc.getQuestionAnswerCalc();
-                }
-
-                case "GCD" -> {
-                    question = GCD.printQuestionGCD();
-                    units = GCD.getQuestionAnswerGCD();
-                }
-
-                case "Progression" -> {
-                    question = Progression.printQuestionProgression();
-                    units = Progression.getQuestionAnswerProgression();
-                }
-
-                case "Prime" -> {
-                    question = Prime.printQuestionPrime();
-                    units = Prime.getQuestionAnswerPrime();
-                }
-
-                default -> throw new Error("Unknown game: " + gameName + "!");
+            case "Greet" -> {
+                System.out.println();
+                System.out.println("Welcome to the Brain Games!");
+                System.out.println("May I have your name? ");
+                String name = input.next();
+                System.out.println("Hello, " + name + "!");
             }
 
-            if (gameChoice != 1) {
-                Engine.playGame(question, units, name);
-            }
+            case "Even" -> Even.numberEvenOrNot();
+
+            case "Calc" -> Calc.getEquation();
+
+            case "GCD" -> GCD.findGCD();
+
+            case "Progression" -> Progression.startProgression();
+
+            case "Prime" -> Prime.numberPrimeOrNot();
+
+            default -> throw new Error("Unknown game: " + gameName + "!");
         }
     }
 }
