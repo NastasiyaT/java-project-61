@@ -1,14 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class GCD {
-    public static final int ROUND = 3;
-
     public static void findGCD() {
-        String[][] issues = new String[ROUND][2];
+        String[][] issues = new String[Engine.GAME_ROUND][2];
 
         for (String[] issue : issues) {
             String[] reactions = generateRoundData();
@@ -21,14 +18,11 @@ public class GCD {
         Engine.playGame(task, issues);
     }
 
-    public static final int BOUNDARY = 100;
-
     public static String[] generateRoundData() {
         String[] items = {"Question", "Answer"};
 
-        Random newNumber = new Random();
-         int n1 = newNumber.nextInt(BOUNDARY);
-         int n2 = newNumber.nextInt(BOUNDARY);
+        int n1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
+        int n2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
 
          items[0] = n1 + " " + n2;
          items[1] = Integer.toString(commonDivisor(n1, n2));

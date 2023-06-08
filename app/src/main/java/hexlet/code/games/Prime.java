@@ -2,14 +2,12 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import hexlet.code.Utils;
 import org.apache.commons.math3.primes.Primes;
-import java.util.Random;
 
 public class Prime {
-    public static final int ROUND = 3;
-
     public static void numberPrimeOrNot() {
-        String[][] issues = new String[ROUND][2];
+        String[][] issues = new String[Engine.GAME_ROUND][2];
 
         for (String[] issue : issues) {
             String[] reactions = generateRoundData();
@@ -22,13 +20,10 @@ public class Prime {
         Engine.playGame(task, issues);
     }
 
-    public static final int BOUNDARY = 100;
-
     public static String[] generateRoundData() {
         String[] items = {"Question", "Answer"};
 
-        Random newNumber = new Random();
-        int number = newNumber.nextInt(BOUNDARY);
+        int number = Utils.getNewRandomNumber(Utils.BOUNDARY);
 
         items[0] = Integer.toString(number);
 

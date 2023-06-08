@@ -1,14 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Even {
-    public static final int ROUND = 3;
-
     public static void numberEvenOrNot() {
-        String[][] issues = new String[ROUND][2];
+        String[][] issues = new String[Engine.GAME_ROUND][2];
 
         for (String[] issue : issues) {
             String[] reactions = generateRoundData();
@@ -21,21 +18,22 @@ public class Even {
         Engine.playGame(task, issues);
     }
 
-    public static final int BOUNDARY = 100;
-
     public static String[] generateRoundData() {
         String[] items = {"Question", "Answer"};
 
-        Random newNumber = new Random();
-        int q = newNumber.nextInt(BOUNDARY);
+        int q = Utils.getNewRandomNumber(Utils.BOUNDARY);
         items[0] = Integer.toString(q);
 
-        if (q % 2 == 0) {
+        if (isEven(q)) {
             items[1] = "yes";
         } else {
             items[1] = "no";
         }
 
         return items;
+    }
+
+    public static boolean isEven(int r) {
+        return r % 2 == 0;
     }
 }
