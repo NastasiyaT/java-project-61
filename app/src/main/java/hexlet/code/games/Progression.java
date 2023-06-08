@@ -36,11 +36,11 @@ public class Progression {
 
         int place = Utils.getNewRandomNumber(units.length);
 
-        String[] unitsPartOne = Arrays.copyOfRange(units, 0, place);
-        String[] unitsPartTwo = Arrays.copyOfRange(units, place + 1, units.length);
+        String hiddenNumber = units[place];
+        units[place] = "..";
 
-        items[0] = String.join(" ", unitsPartOne) + " .. " + String.join(" ", unitsPartTwo);
-        items[1] = units[place];
+        items[0] = String.join(" ", units);
+        items[1] = hiddenNumber;
 
         return items;
     }
