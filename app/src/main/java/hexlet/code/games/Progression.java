@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Arrays;
-
 public class Progression {
     public static final int START_NUMBER_MAX = 50;
     public static final int STEP_MAX = 15;
