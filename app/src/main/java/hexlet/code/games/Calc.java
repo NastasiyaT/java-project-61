@@ -27,7 +27,7 @@ public final class Calc implements Game {
     @Override
     public String getAnswer(String question) {
         Expression expression = new ExpressionBuilder(question).build();
-        int result = (int)expression.evaluate();
+        int result = (int) expression.evaluate();
         return String.valueOf(result);
     }
 
