@@ -1,52 +1,49 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
-
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter");
-        String[] games = {"Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"};
+    private static List<String> options = List.of(
+            "Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"
+    );
 
-        for (int i = 1; i < games.length; i++) {
-            System.out.print(i + " - ");
-            System.out.println(games[i]);
-        }
-        System.out.println("0 - " + games[0]);
-        System.out.print("Your choice: ");
+    private static int optionsNumber = options.size();
+
+    public static void main(String[] args) {
+        printGameChoice();
 
         Scanner input = new Scanner(System.in);
-        int gameChoice = input.nextInt();
+        int userChoice = input.nextInt();
 
-        String gameName = games[gameChoice];
+        try {
+            String gameName = options.get(userChoice);
 
-        switch (gameName) {
-            case "Exit" -> input.close();
+            switch (gameName) {
+                case "Exit" -> input.close();
 
-            case "Greet" -> {
-                System.out.println();
-                System.out.println("Welcome to the Brain Games!");
-                System.out.println("May I have your name? ");
-                String name = input.next();
-                System.out.println("Hello, " + name + "!");
+                case "Greet" -> {
+                    System.out.println("\nWelcome to the Brain Games!");
+                    System.out.println("May I have your name? ");
+                    String name = input.next();
+                    System.out.println("Hello, " + name + "!");
+                }
+
+                default -> Engine.playGame(gameName);
             }
-
-            case "Even" -> Even.numberEvenOrNot();
-
-            case "Calc" -> Calc.getEquation();
-
-            case "GCD" -> GCD.findGCD();
-
-            case "Progression" -> Progression.startProgression();
-
-            case "Prime" -> Prime.numberPrimeOrNot();
-
-            default -> throw new Error("Unknown game: " + gameName + "!");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+    }
+
+    private static void printGameChoice() {
+        System.out.println("Please enter the game number and press Enter");
+
+        for (int i = 1; i < optionsNumber; i++) {
+            String option = options.get(i);
+            System.out.println(i + " - " + option);
+        }
+        System.out.println("0 - " + options.get(0));
+        System.out.print("Your choice: ");
     }
 }

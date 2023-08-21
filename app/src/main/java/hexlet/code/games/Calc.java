@@ -1,50 +1,40 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
 
 import java.util.Random;
 
-public class Calc {
-    public static void getEquation() {
-        String[][] issues = new String[Engine.GAME_ROUND][2];
+public final class Calc implements Game {
+    public static final String CALC_NAME = "Calc";
 
-        for (String[] issue : issues) {
-            String[] reactions = generateRoundData();
-            issue[0] = reactions[0];
-            issue[1] = reactions[1];
-        }
-
-        String task = "What is the result of the expression?";
-
-        Engine.playGame(task, issues);
+    @Override
+    public void printTask() {
+        System.out.println("What is the result of the expression?");
     }
 
-    public static String[] generateRoundData() {
-        String[] items = {"Question", "Answer"};
+    @Override
+    public String getQuestion() {
+        int num1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
+        int num2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
 
-        int n1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
-        int n2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
+        String operator = generateOperator();
 
+        return num1 + " " + operator + " " + num2;
+    }
+
+    @Override
+    public String getAnswer(String question) {
+        Expression expression = new ExpressionBuilder(question).build();
+        int result = (int)expression.evaluate();
+        return String.valueOf(result);
+    }
+
+    private static String generateOperator() {
+        String[] operators = {"+", "-", "*"};
         Random indicator = new Random();
-        String[] operators = {" + ", " - ", " * "};
-
-        switch (indicator.nextInt(operators.length)) {
-            case 0 -> {
-                items[0] = n1 + operators[0] + n2;
-                items[1] = Integer.toString(n1 + n2);
-            }
-            case 1 -> {
-                items[0] = n1 + operators[1] + n2;
-                items[1] = Integer.toString(n1 - n2);
-            }
-            case 2 -> {
-                items[0] = n1 + operators[2] + n2;
-                items[1] = Integer.toString(n1 * n2);
-            }
-            default -> throw new Error("Unknown operator!");
-        }
-
-        return items;
+        int num = indicator.nextInt(operators.length);
+        return operators[num];
     }
 }

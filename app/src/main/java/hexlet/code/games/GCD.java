@@ -1,36 +1,40 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class GCD {
-    public static void findGCD() {
-        String[][] issues = new String[Engine.GAME_ROUND][2];
+import java.util.Arrays;
 
-        for (String[] issue : issues) {
-            String[] reactions = generateRoundData();
-            issue[0] = reactions[0];
-            issue[1] = reactions[1];
-        }
+public final class GCD implements Game {
+    public static final String GCD_NAME = "GCD";
 
-        String task = "Find the greatest common divisor of given numbers.";
-
-        Engine.playGame(task, issues);
+    @Override
+    public void printTask() {
+        System.out.println("Find the greatest common divisor of given numbers.");
     }
 
-    public static String[] generateRoundData() {
-        String[] items = {"Question", "Answer"};
-
-        int n1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
-        int n2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
-
-         items[0] = n1 + " " + n2;
-         items[1] = Integer.toString(commonDivisor(n1, n2));
-
-        return items;
+    @Override
+    public String getQuestion() {
+        int num1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
+        int num2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
+        return num1 + " " + num2;
     }
 
-    public static int commonDivisor(int a, int b) {
+    @Override
+    public String getAnswer(String question) {
+        String[] nums = question.split(" ");
+        int[] vals = Arrays.stream(nums)
+                .mapToInt(Integer::parseInt)
+                .toArray();
+
+        int val1 = vals[0];
+        int val2 = vals[1];
+
+        int result = commonDivisor(val1, val2);
+
+        return String.valueOf(result);
+    }
+
+    private static int commonDivisor(int a, int b) {
         if (a == 0) {
             return b;
         }

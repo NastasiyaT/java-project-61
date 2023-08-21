@@ -1,49 +1,51 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-public class Progression {
-    public static final int START_NUMBER_MAX = 50;
-    public static final int STEP_MAX = 15;
-    public static final int MAX = 10;
-    public static final int MIN = 5;
+import java.util.Arrays;
+import java.util.List;
 
-    public static void startProgression() {
-        String[][] issues = new String[Engine.GAME_ROUND][2];
+public final class Progression implements Game {
+    public static final String PROGRESSION_NAME = "Progression";
 
-        for (String[] issue : issues) {
-            String[] reactions = generateRoundData();
-            issue[0] = reactions[0];
-            issue[1] = reactions[1];
-        }
+    private static final int START_NUMBER_MAX = 50;
+    private static final int STEP_MAX = 15;
+    private static final int MAX = 10;
+    private static final int MIN = 5;
 
-        String task = "What number is missing in the progression?";
-
-        Engine.playGame(task, issues);
+    @Override
+    public void printTask() {
+        System.out.println("What number is missing in the progression?");
     }
 
-    public static String[] generateRoundData() {
-        String[] items = {"Question", "Answer"};
-
+    @Override
+    public String getQuestion() {
         int itemsCount = Utils.getNewRandomNumber(MAX - MIN) + MIN;
-        int seed = Utils.getNewRandomNumber(START_NUMBER_MAX);
-        int count = Utils.getNewRandomNumber(STEP_MAX) + 1;
+        int start = Utils.getNewRandomNumber(START_NUMBER_MAX);
+        int surplus = Utils.getNewRandomNumber(STEP_MAX) + 1;
 
-        String[] units = getNewArray(itemsCount, seed, count);
+        String[] units = getNewArray(itemsCount, start, surplus);
 
-        int place = Utils.getNewRandomNumber(units.length);
-
-        String hiddenNumber = units[place];
+        int place = Utils.getNewRandomNumber(itemsCount);
         units[place] = "..";
 
-        items[0] = String.join(" ", units);
-        items[1] = hiddenNumber;
-
-        return items;
+        return String.join(" ", units);
     }
 
-    public static String[] getNewArray(int arrayLength, int firstNumber, int step) {
+    @Override
+    public String getAnswer(String question) {
+        List<String> items = Arrays.asList(question.split(" "));
+        int index = items.indexOf("..");
+
+        int val1 = Integer.parseInt(items.get(index - 1));
+        int val2 = Integer.parseInt(items.get(index + 1));
+
+        int result = (val1 + val2) / 2;
+
+        return String.valueOf(result);
+    }
+
+    private static String[] getNewArray(int arrayLength, int firstNumber, int step) {
         String[] cases = new String[arrayLength];
         int t = firstNumber;
 
