@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Utils;
 
-import java.util.Arrays;
+import java.util.Map;
 
 public final class GCD implements Game {
     public static final String GCD_NAME = "GCD";
@@ -13,25 +13,17 @@ public final class GCD implements Game {
     }
 
     @Override
-    public String getQuestion() {
+    public Map<String, String> getAssignment() {
+
         int num1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
         int num2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
-        return num1 + " " + num2;
-    }
+        int gcd = commonDivisor(num1, num2);
 
-    @Override
-    public String getAnswer(String question) {
-        String[] nums = question.split(" ");
-        int[] vals = Arrays.stream(nums)
-                .mapToInt(Integer::parseInt)
-                .toArray();
+        String task = num1 + " " + num2;
+        String answer = String.valueOf(gcd);
 
-        int val1 = vals[0];
-        int val2 = vals[1];
-
-        int result = commonDivisor(val1, val2);
-
-        return String.valueOf(result);
+        return Map.of(Utils.QUESTION, task,
+                Utils.ANSWER, answer);
     }
 
     private static int commonDivisor(int a, int b) {

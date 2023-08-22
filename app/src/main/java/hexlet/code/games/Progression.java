@@ -2,8 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Utils;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Map;
 
 public final class Progression implements Game {
     public static final String PROGRESSION_NAME = "Progression";
@@ -19,39 +18,31 @@ public final class Progression implements Game {
     }
 
     @Override
-    public String getQuestion() {
+    public Map<String, String> getAssignment() {
+
+        String[] progression = getNewArray();
+        int index = Utils.getNewRandomNumber(progression.length);
+
+        String answer = progression[index];
+
+        progression[index] = "..";
+        String task = String.join(" ", progression);
+
+        return Map.of(Utils.QUESTION, task,
+                Utils.ANSWER, answer);
+    }
+
+    private static String[] getNewArray() {
         int itemsCount = Utils.getNewRandomNumber(MAX - MIN) + MIN;
         int start = Utils.getNewRandomNumber(START_NUMBER_MAX);
         int surplus = Utils.getNewRandomNumber(STEP_MAX) + 1;
 
-        String[] units = getNewArray(itemsCount, start, surplus);
+        String[] cases = new String[itemsCount];
+        int t = start;
 
-        int place = Utils.getNewRandomNumber(itemsCount);
-        units[place] = "..";
-
-        return String.join(" ", units);
-    }
-
-    @Override
-    public String getAnswer(String question) {
-        List<String> items = Arrays.asList(question.split(" "));
-        int index = items.indexOf("..");
-
-        int val1 = Integer.parseInt(items.get(index - 1));
-        int val2 = Integer.parseInt(items.get(index + 1));
-
-        int result = (val1 + val2) / 2;
-
-        return String.valueOf(result);
-    }
-
-    private static String[] getNewArray(int arrayLength, int firstNumber, int step) {
-        String[] cases = new String[arrayLength];
-        int t = firstNumber;
-
-        for (int s = 0; s < arrayLength; s++) {
-            cases[s] = Integer.toString(t);
-            t += step;
+        for (int i = 0; i < itemsCount; i++) {
+            cases[i] = Integer.toString(t);
+            t += surplus;
         }
 
         return cases;

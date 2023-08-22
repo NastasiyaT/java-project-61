@@ -33,13 +33,15 @@ public class Engine {
         gameToPlay.printTask();
 
         for (int m = 0; m < GAME_ROUND; m++) {
-            String task = gameToPlay.getQuestion();
+            Map<String, String> assignment = gameToPlay.getAssignment();
+
+            String task = assignment.get(Utils.QUESTION);
 
             System.out.println("Question: " + task);
             System.out.print("Your answer: ");
             String userAnswer = input.nextLine();
 
-            String response = gameToPlay.getAnswer(task);
+            String response = assignment.get(Utils.ANSWER);
 
             if (userAnswer.equalsIgnoreCase(response)) {
                 System.out.println("Correct!");

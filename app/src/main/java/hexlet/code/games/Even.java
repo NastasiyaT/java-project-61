@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Utils;
 
+import java.util.Map;
+
 public final class Even implements Game {
     public static final String EVEN_NAME = "Even";
 
@@ -11,20 +13,21 @@ public final class Even implements Game {
     }
 
     @Override
-    public String getQuestion() {
+    public Map<String, String> getAssignment() {
+
         int num = Utils.getNewRandomNumber(Utils.BOUNDARY);
-        return Integer.toString(num);
-    }
 
-    @Override
-    public String getAnswer(String question) {
-        int val = Integer.parseInt(question);
+        String task = String.valueOf(num);
+        String answer = "";
 
-        if (isEven(val)) {
-            return "yes";
+        if (isEven(num)) {
+            answer = "yes";
         } else {
-            return "no";
+            answer = "no";
         }
+
+        return Map.of(Utils.QUESTION, task,
+                Utils.ANSWER, answer);
     }
 
     private static boolean isEven(int r) {

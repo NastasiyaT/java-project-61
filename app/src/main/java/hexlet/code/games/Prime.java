@@ -3,6 +3,8 @@ package hexlet.code.games;
 import hexlet.code.Utils;
 import org.apache.commons.math3.primes.Primes;
 
+import java.util.Map;
+
 public final class Prime implements Game {
     public static final String PRIME_NAME = "Prime";
 
@@ -12,19 +14,24 @@ public final class Prime implements Game {
     }
 
     @Override
-    public String getQuestion() {
+    public Map<String, String> getAssignment() {
+
         int num = Utils.getNewRandomNumber(Utils.BOUNDARY);
-        return String.valueOf(num);
-    }
 
-    @Override
-    public String getAnswer(String question) {
-        int val = Integer.parseInt(question);
-
-        if (Primes.isPrime(val)) {
-            return "yes";
-        } else {
-            return "no";
+        if (num == 0 || num == 1) {
+            num = Utils.getNewRandomNumber(Utils.BOUNDARY);
         }
+
+        String task = String.valueOf(num);
+        String answer = "";
+
+        if (Primes.isPrime(num)) {
+            answer = "yes";
+        } else {
+            answer = "no";
+        }
+
+        return Map.of(Utils.QUESTION, task,
+                Utils.ANSWER, answer);
     }
 }
