@@ -19,16 +19,19 @@ public class Engine {
             Prime.PRIME_NAME, new Prime()
     );
 
+    public static final String WELCOME_MESSAGE = "\nWelcome to the Brain Games!";
+    public static final String GREETING_MESSAGE = "May I have your name?";
+
     private static Scanner input = new Scanner(System.in);
     private static final int GAME_ROUND = 3;
 
     public static void playGame(String choice) {
         Game gameToPlay = games.get(choice);
 
-        System.out.println("\nWelcome to the Brain Games!");
-        System.out.println("May I have your name? ");
+        System.out.println(WELCOME_MESSAGE);
+        System.out.println(GREETING_MESSAGE);
         String userName = input.nextLine();
-        System.out.println("Hello, " + userName + "!");
+        System.out.printf("Hello, %s!%n", userName);
 
         gameToPlay.printTask();
 
@@ -37,7 +40,7 @@ public class Engine {
 
             String task = assignment.get(Utils.QUESTION);
 
-            System.out.println("Question: " + task);
+            System.out.printf("Question: %s%n", task);
             System.out.print("Your answer: ");
             String userAnswer = input.nextLine();
 
@@ -46,13 +49,13 @@ public class Engine {
             if (userAnswer.equalsIgnoreCase(response)) {
                 System.out.println("Correct!");
             } else {
-                System.out.print("'" + userAnswer + "' is wrong answer ;(. ");
-                System.out.println("Correct answer was '" + response + "'.");
-                System.out.println("Let's try again, " + userName + "!");
+                System.out.printf("'%s' is wrong answer ;(.%n", userAnswer);
+                System.out.printf("Correct answer was '%s'.%n", response);
+                System.out.printf("Let's try again, %s!%n", userName);
                 return;
             }
         }
 
-        System.out.println("Congratulations, " + userName + "!");
+        System.out.printf("Congratulations, %s!%n", userName);
     }
 }

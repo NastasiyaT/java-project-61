@@ -3,6 +3,9 @@ package hexlet.code;
 import java.util.List;
 import java.util.Scanner;
 
+import static hexlet.code.Engine.GREETING_MESSAGE;
+import static hexlet.code.Engine.WELCOME_MESSAGE;
+
 public class App {
     private static List<String> options = List.of(
             "Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime"
@@ -23,10 +26,10 @@ public class App {
                 case "Exit" -> input.close();
 
                 case "Greet" -> {
-                    System.out.println("\nWelcome to the Brain Games!");
-                    System.out.println("May I have your name? ");
+                    System.out.println(WELCOME_MESSAGE);
+                    System.out.println(GREETING_MESSAGE);
                     String name = input.next();
-                    System.out.println("Hello, " + name + "!");
+                    System.out.printf("Hello, %s!%n", name);
                 }
 
                 default -> Engine.playGame(gameName);
@@ -41,9 +44,9 @@ public class App {
 
         for (int i = 1; i < optionsNumber; i++) {
             String option = options.get(i);
-            System.out.println(i + " - " + option);
+            System.out.printf("%d - %s%n", i, option);
         }
-        System.out.println("0 - " + options.get(0));
+        System.out.printf("%d - %s%n", 0, options.get(0));
         System.out.print("Your choice: ");
     }
 }
