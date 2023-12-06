@@ -11,8 +11,8 @@ public final class Calc implements Game {
     public static final String CALC_NAME = "Calc";
 
     @Override
-    public void printTask() {
-        System.out.println("What is the result of the expression?");
+    public String getTask() {
+        return "What is the result of the expression?";
     }
 
     @Override

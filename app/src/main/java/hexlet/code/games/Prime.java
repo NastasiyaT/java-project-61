@@ -9,8 +9,8 @@ public final class Prime implements Game {
     public static final String PRIME_NAME = "Prime";
 
     @Override
-    public void printTask() {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    public String getTask() {
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override

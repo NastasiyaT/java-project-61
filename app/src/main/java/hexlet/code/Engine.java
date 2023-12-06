@@ -32,8 +32,7 @@ public class Engine {
         System.out.println(GREETING_MESSAGE);
         String userName = input.nextLine();
         System.out.printf("Hello, %s!%n", userName);
-
-        gameToPlay.printTask();
+        System.out.println(gameToPlay.getTask());
 
         for (int m = 0; m < GAME_ROUND; m++) {
             Map<String, String> assignment = gameToPlay.getAssignment();

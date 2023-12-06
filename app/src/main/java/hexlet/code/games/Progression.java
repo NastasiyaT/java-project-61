@@ -13,8 +13,8 @@ public final class Progression implements Game {
     private static final int MIN = 5;
 
     @Override
-    public void printTask() {
-        System.out.println("What number is missing in the progression?");
+    public String getTask() {
+        return "What number is missing in the progression?";
     }
 
     @Override

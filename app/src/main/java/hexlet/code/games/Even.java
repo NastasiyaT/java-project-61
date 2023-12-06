@@ -8,8 +8,8 @@ public final class Even implements Game {
     public static final String EVEN_NAME = "Even";
 
     @Override
-    public void printTask() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    public String getTask() {
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     @Override

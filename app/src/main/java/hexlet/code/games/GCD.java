@@ -8,8 +8,8 @@ public final class GCD implements Game {
     public static final String GCD_NAME = "GCD";
 
     @Override
-    public void printTask() {
-        System.out.println("Find the greatest common divisor of given numbers.");
+    public String getTask() {
+        return "Find the greatest common divisor of given numbers.";
     }
 
     @Override

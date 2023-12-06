@@ -3,6 +3,6 @@ package hexlet.code.games;
 import java.util.Map;
 
 public interface Game {
-    void printTask();
+    String getTask();
     Map<String, String> getAssignment();
 }
