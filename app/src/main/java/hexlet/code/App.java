@@ -35,7 +35,6 @@ public class App {
                 default -> Engine.playGame(gameName);
             }
         } catch (Exception e) {
-            e.printStackTrace();
             System.out.println("No such game exists!");
         }
     }
