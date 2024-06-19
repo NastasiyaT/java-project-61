@@ -3,12 +3,11 @@ package hexlet.code.games;
 import hexlet.code.Utils;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
+import org.apache.commons.math3.util.Pair;
 
-import java.util.Map;
 import java.util.Random;
 
 public final class Calc implements Game {
-    public static final String CALC_NAME = "Calc";
 
     @Override
     public String getTask() {
@@ -16,7 +15,7 @@ public final class Calc implements Game {
     }
 
     @Override
-    public Map<String, String> getAssignment() {
+    public Pair<String, String> getAssignment() {
         int num1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
         int num2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
 
@@ -29,8 +28,7 @@ public final class Calc implements Game {
 
         String answer = String.valueOf(result);
 
-        return Map.of(Utils.QUESTION, task,
-                Utils.ANSWER, answer);
+        return new Pair<>(task, answer);
     }
 
     private static String generateOperator() {

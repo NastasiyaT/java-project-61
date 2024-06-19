@@ -1,11 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Utils;
-
-import java.util.Map;
+import org.apache.commons.math3.util.Pair;
 
 public final class Progression implements Game {
-    public static final String PROGRESSION_NAME = "Progression";
 
     private static final int START_NUMBER_MAX = 50;
     private static final int STEP_MAX = 15;
@@ -18,7 +16,7 @@ public final class Progression implements Game {
     }
 
     @Override
-    public Map<String, String> getAssignment() {
+    public Pair<String, String> getAssignment() {
 
         String[] progression = getNewArray();
         int index = Utils.getNewRandomNumber(progression.length);
@@ -28,8 +26,7 @@ public final class Progression implements Game {
         progression[index] = "..";
         String task = String.join(" ", progression);
 
-        return Map.of(Utils.QUESTION, task,
-                Utils.ANSWER, answer);
+        return new Pair<>(task, answer);
     }
 
     private static String[] getNewArray() {

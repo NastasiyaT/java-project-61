@@ -2,11 +2,9 @@ package hexlet.code.games;
 
 import hexlet.code.Utils;
 import org.apache.commons.math3.primes.Primes;
-
-import java.util.Map;
+import org.apache.commons.math3.util.Pair;
 
 public final class Prime implements Game {
-    public static final String PRIME_NAME = "Prime";
 
     @Override
     public String getTask() {
@@ -14,7 +12,7 @@ public final class Prime implements Game {
     }
 
     @Override
-    public Map<String, String> getAssignment() {
+    public Pair<String, String> getAssignment() {
 
         int num = Utils.getNewRandomNumber(Utils.BOUNDARY);
 
@@ -31,7 +29,6 @@ public final class Prime implements Game {
             answer = "no";
         }
 
-        return Map.of(Utils.QUESTION, task,
-                Utils.ANSWER, answer);
+        return new Pair<>(task, answer);
     }
 }

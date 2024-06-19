@@ -1,11 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Utils;
-
-import java.util.Map;
+import org.apache.commons.math3.util.Pair;
 
 public final class Even implements Game {
-    public static final String EVEN_NAME = "Even";
 
     @Override
     public String getTask() {
@@ -13,7 +11,7 @@ public final class Even implements Game {
     }
 
     @Override
-    public Map<String, String> getAssignment() {
+    public Pair<String, String> getAssignment() {
 
         int num = Utils.getNewRandomNumber(Utils.BOUNDARY);
 
@@ -26,8 +24,7 @@ public final class Even implements Game {
             answer = "no";
         }
 
-        return Map.of(Utils.QUESTION, task,
-                Utils.ANSWER, answer);
+        return new Pair<>(task, answer);
     }
 
     private static boolean isEven(int r) {

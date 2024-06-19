@@ -1,11 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Utils;
-
-import java.util.Map;
+import org.apache.commons.math3.util.Pair;
 
 public final class GCD implements Game {
-    public static final String GCD_NAME = "GCD";
 
     @Override
     public String getTask() {
@@ -13,7 +11,7 @@ public final class GCD implements Game {
     }
 
     @Override
-    public Map<String, String> getAssignment() {
+    public Pair<String, String> getAssignment() {
 
         int num1 = Utils.getNewRandomNumber(Utils.BOUNDARY);
         int num2 = Utils.getNewRandomNumber(Utils.BOUNDARY);
@@ -22,8 +20,7 @@ public final class GCD implements Game {
         String task = num1 + " " + num2;
         String answer = String.valueOf(gcd);
 
-        return Map.of(Utils.QUESTION, task,
-                Utils.ANSWER, answer);
+        return new Pair<>(task, answer);
     }
 
     private static int commonDivisor(int a, int b) {

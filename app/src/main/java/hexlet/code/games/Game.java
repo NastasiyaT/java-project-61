@@ -1,8 +1,8 @@
 package hexlet.code.games;
 
-import java.util.Map;
+import org.apache.commons.math3.util.Pair;
 
 public interface Game {
     String getTask();
-    Map<String, String> getAssignment();
+    Pair<String, String> getAssignment();
 }
